@@ -1,5 +1,6 @@
 package com.george.testone.dataBase;
 
+import com.george.testone.settings.BaseSettings;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -10,15 +11,17 @@ public class ConnectToDataBase {
     Connection connection;
 
     public Connection connect(){
+        BaseSettings baseSettings = new BaseSettings();
+        baseSettings.start();
         try {
             DriverManager.registerDriver(new org.postgresql.Driver());
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String url = "jdbc:postgresql://localhost:5433/fltest";
+        String url = "jdbc:postgresql://"+baseSettings.adress+":"+baseSettings.port+"/"+baseSettings.dataBaseName;
         Properties properties = new Properties();
-        properties.put("user","george");
-        properties.put("password","1");
+        properties.put("user", baseSettings.login);
+        properties.put("password", baseSettings.password);
         try {
             checkConnection();
             connection = DriverManager.getConnection(url, properties);

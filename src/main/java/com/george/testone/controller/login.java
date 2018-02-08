@@ -36,12 +36,12 @@ public class login{
 
     private void checkQuery(){
         try {
-            ResultSet rs = new DbQuery().stringQuery("SELECT role FROM login WHERE login = '"+log.getText()+"' AND password = '"+password.getText()+"'");
+            ResultSet rs = new DbQuery().stringQuery("SELECT role.name FROM public.login, public.role WHERE role.id = login.role_id AND login.login = '"+log.getText()+"'  AND login.password = '"+password.getText()+"'");
             String role = null;
             while (rs.next()){
-                role = rs.getString("role");
+                role = rs.getString("name");
                 switch ((String)role){
-                    case "admin":{
+                    case "administrator":{
                         Stage stage = (Stage) log.getScene().getWindow();
                         stage.close();
                         Admin op = new Admin();

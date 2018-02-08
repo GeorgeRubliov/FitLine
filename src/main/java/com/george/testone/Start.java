@@ -10,10 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-//import org.springframework.boot.SpringApplication;
-//import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//@SpringBootApplication
 public class Start {
 
 	public static void main(String[] args) {
@@ -26,8 +23,8 @@ public class Start {
 				FileWriter fileWriter = new FileWriter("settings.json");
 				JsonObject jsonObject = Json.createObjectBuilder()
 						.add("address","localhost")
-						.add("port","5433")
-						.add("DataBaseName","fltest")
+						.add("port","5432")
+						.add("DataBaseName","fitline")
 						.add("login","george")
 						.add("password","1")
 						.add("style","base")

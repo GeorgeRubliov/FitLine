@@ -5,13 +5,14 @@
  */
 package com.george.testone.controller;
 
-import com.george.testone.collection.ClientCollection;
-import com.george.testone.entity.Clients;
+import com.george.testone.collection.CustomerCollection;
+import com.george.testone.entity.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
@@ -21,34 +22,27 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class Operators{
 
-    private ClientCollection list = new ClientCollection();
+    CustomerCollection customerCollection = new CustomerCollection();
 
     @FXML
-    private TableView<Clients> table;
-
+    private TableView<Customer> table;
     @FXML
-    private TableColumn<Clients, Long> id;
-
+    private TableColumn<Customer, Long> id;
     @FXML
-    private TableColumn<Clients, String> name;
-
+    private TableColumn<Customer, String> firstName;
     @FXML
-    private TableColumn<Clients, String> coache;
-
+    private TableColumn<Customer, String> familyName;
     @FXML
-    private TableColumn<Clients, String> timeIn;
-
+    private TableColumn<Customer, String> mobileNumber;
 
     @FXML
     private void initialize(){
-
-        id.setCellValueFactory(new PropertyValueFactory<Clients, Long>("id"));
-        name.setCellValueFactory(new PropertyValueFactory<Clients, String>("name"));
-        coache.setCellValueFactory(new PropertyValueFactory<Clients, String>("coache"));
-        timeIn.setCellValueFactory(new PropertyValueFactory<Clients, String>("timeIn"));
-        list.fileTestData();
-        table.setItems(list.getClientsList());
-
+        id.setCellValueFactory(new PropertyValueFactory<Customer, Long>("id"));
+        firstName.setCellValueFactory(new PropertyValueFactory<Customer, String>("firstName"));
+        familyName.setCellValueFactory(new PropertyValueFactory<Customer, String>("familyName"));
+        mobileNumber.setCellValueFactory(new PropertyValueFactory<Customer, String>("mobileNumber"));
+        customerCollection.init();
+        table.setItems(customerCollection.getList());
     }
 
     private void event(ActionEvent actionEvent){
@@ -57,7 +51,6 @@ public class Operators{
             return;
         }
         Button button = (Button) source;
-//        Clients selectedClient = (Clients) list.getClientsList().get
     }
 
 }

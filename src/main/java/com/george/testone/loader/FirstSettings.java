@@ -1,8 +1,6 @@
 package com.george.testone.loader;
 
-import com.george.testone.loader.Login;
 import com.george.testone.settings.BaseSettings;
-//import com.project.fitline.settings.BaseSettings;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

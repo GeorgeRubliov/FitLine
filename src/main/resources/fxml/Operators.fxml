@@ -7,11 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-            stylesheets="@../styles/base.css"
-            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.george.testone.controller.Operators">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/base.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.george.testone.controller.Operators">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -44,9 +40,9 @@
       <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
-          <TableColumn fx:id="coache" prefWidth="75.0" text="Coache" />
-          <TableColumn fx:id="timeIn" prefWidth="85.0" text="Entrence time" />
+          <TableColumn fx:id="firstName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="familyName" prefWidth="115.0" text="Family Name" />
+            <TableColumn fx:id="mobileNumber" prefWidth="75.0" text="Phone Number" />
         </columns>
       </TableView>
    </center>

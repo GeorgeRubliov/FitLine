@@ -28,4 +28,9 @@ public class Operators extends Application{
         }
 
     }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+    }
 }

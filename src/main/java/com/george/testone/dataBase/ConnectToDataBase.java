@@ -6,6 +6,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * Class for connection to the chosen data base and return connection to data base.
+ */
+
 public class ConnectToDataBase {
 
     Connection connection;

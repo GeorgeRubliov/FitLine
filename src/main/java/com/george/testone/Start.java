@@ -32,7 +32,6 @@ public class Start {
 
 				fileWriter.write(String.valueOf(jsonObject));
 				fileWriter.flush();
-				System.out.println(jsonObject);
 			} catch (IOException e1) {
 				System.out.println(e1);
 			}

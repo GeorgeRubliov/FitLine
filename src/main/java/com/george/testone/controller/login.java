@@ -13,6 +13,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
+/**
+ * This class for manage login.fxml GUI.
+ * @author George
+ */
+
 public class login{
 
     @FXML
@@ -21,6 +26,10 @@ public class login{
     @FXML
     PasswordField password;
 
+    /**
+     * this method opens a GUI for making setting for tune connection to the data base and chose style.
+     * @param actionEvent
+     */
     public void openSettings(ActionEvent actionEvent) {
         FirstSettings fs = new FirstSettings();
         try {
@@ -29,6 +38,12 @@ public class login{
             e.printStackTrace();
         }
     }
+
+    /**
+     * ActionEvent for the loginPressed button and this event check the login and password in the data base
+     * and return the roe of the user if this user is in the data base and have right for using this system.
+     * @param actionEvent
+     */
 
     public void loginPressed(ActionEvent actionEvent) {
         checkQuery();

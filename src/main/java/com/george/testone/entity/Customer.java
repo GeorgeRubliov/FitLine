@@ -3,258 +3,320 @@ package com.george.testone.entity;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+/**
+ * Entity class for manage customer profile.
+ * @author George
+ */
+
 public class Customer {
-    private Long id;
-    private String firstName;
-    private String secondName;
-    private String familyName;
-    private String mobileNumber;
-    private String email;
-    private String photo;
-    private Long program;
-    private Long gender;
 
-    public Customer(Long id, String firstName, String secondName, String familyName, String mobileNumber, String email, String photo, Long program, Long gender) {
-        this.id = id;
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.familyName = familyName;
-        this.mobileNumber = mobileNumber;
-        this.email = email;
-        this.photo = photo;
-        this.program = program;
-        this.gender = gender;
+    private SimpleLongProperty id  = new SimpleLongProperty();
+    private SimpleStringProperty firstName  = new SimpleStringProperty();
+    private SimpleStringProperty secondName  = new SimpleStringProperty();
+    private SimpleStringProperty familyName  = new SimpleStringProperty();
+    private SimpleStringProperty mobileNumber  = new SimpleStringProperty();
+    private SimpleStringProperty email  = new SimpleStringProperty();
+    private SimpleStringProperty photo  = new SimpleStringProperty();
+    private SimpleLongProperty program  = new SimpleLongProperty();
+    private SimpleLongProperty gender  = new SimpleLongProperty();
+    private SimpleStringProperty birthDate = new SimpleStringProperty();
+
+    public Customer(){
+
     }
 
-    public Customer() {
+    /**
+     *
+     * @param id
+     * @param firstName
+     * @param secondName
+     * @param familyName
+     * @param mobileNumber
+     * @param email
+     * @param photo
+     * @param program
+     * @param gender
+     * @param birthDate
+     */
+    public Customer(Long id,
+                    String firstName,
+                    String secondName,
+                    String familyName,
+                    String mobileNumber,
+                    String email,
+                    String photo,
+                    Long program,
+                    Long gender,
+                    String birthDate){
+        this.id.set(id);
+        this.firstName.set(firstName);
+        this.secondName.set(secondName);
+        this.familyName.set(familyName);
+        this.mobileNumber.set(mobileNumber);
+        this.email.set(email);
+        this.photo.set(photo);
+        this.program.set(program);
+        this.gender.set(gender);
+        this.birthDate.set(birthDate);
     }
 
-    public Long getId() {
+    /**
+     *
+     * @return
+     */
+    public long getId() {
+        return id.get();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public SimpleLongProperty idProperty() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    /**
+     *
+     * @param id
+     */
+    public void setId(long id) {
+        this.id.set(id);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFirstName() {
+        return firstName.get();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public SimpleStringProperty firstNameProperty() {
         return firstName;
     }
 
+    /**
+     *
+     * @param firstName
+     */
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName.set(firstName);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSecondName() {
+        return secondName.get();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public SimpleStringProperty secondNameProperty() {
         return secondName;
     }
 
+    /**
+     *
+     * @param secondName
+     */
     public void setSecondName(String secondName) {
-        this.secondName = secondName;
+        this.secondName.set(secondName);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFamilyName() {
+        return familyName.get();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public SimpleStringProperty familyNameProperty() {
         return familyName;
     }
 
+    /**
+     *
+     * @param familyName
+     */
     public void setFamilyName(String familyName) {
-        this.familyName = familyName;
+        this.familyName.set(familyName);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getMobileNumber() {
+        return mobileNumber.get();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public SimpleStringProperty mobileNumberProperty() {
         return mobileNumber;
     }
 
+    /**
+     *
+     * @param mobileNumber
+     */
     public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
+        this.mobileNumber.set(mobileNumber);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmail() {
+        return email.get();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public SimpleStringProperty emailProperty() {
         return email;
     }
 
+    /**
+     *
+     * @param email
+     */
     public void setEmail(String email) {
-        this.email = email;
+        this.email.set(email);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPhoto() {
+        return photo.get();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public SimpleStringProperty photoProperty() {
         return photo;
     }
 
+    /**
+     *
+     * @param photo
+     */
     public void setPhoto(String photo) {
-        this.photo = photo;
+        this.photo.set(photo);
     }
 
-    public Long getProgram() {
+    /**
+     *
+     * @return
+     */
+    public long getProgram() {
+        return program.get();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public SimpleLongProperty programProperty() {
         return program;
     }
 
-    public void setProgram(Long program) {
-        this.program = program;
+    /**
+     *
+     * @param program
+     */
+    public void setProgram(long program) {
+        this.program.set(program);
     }
 
-    public Long getGender() {
+    /**
+     *
+     * @return
+     */
+    public long getGender() {
+        return gender.get();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public SimpleLongProperty genderProperty() {
         return gender;
     }
 
-    public void setGender(Long gender) {
-        this.gender = gender;
+    /**
+     *
+     * @param gender
+     */
+    public void setGender(long gender) {
+        this.gender.set(gender);
     }
 
+    /**
+     *
+     * @return
+     */
+    public String getBirthDate() {
+        return birthDate.get();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public SimpleStringProperty birthDateProperty() {
+        return birthDate;
+    }
+
+    /**
+     *
+     * @param birthDate
+     */
+    public void setBirthDate(String birthDate) {
+        this.birthDate.set(birthDate);
+    }
+
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
-                ", familyName='" + familyName + '\'' +
-                ", mobileNumber='" + mobileNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", photo='" + photo + '\'' +
+                ", firstName=" + firstName +
+                ", secondName=" + secondName +
+                ", familyName=" + familyName +
+                ", mobileNumber=" + mobileNumber +
+                ", email=" + email +
+                ", photo=" + photo +
                 ", program=" + program +
                 ", gender=" + gender +
-                '}';
+                ", birthDate="+ birthDate +
+                '}'+"\n ";
     }
-
-    //    private SimpleLongProperty id;
-//    private SimpleStringProperty firstName;
-//    private SimpleStringProperty secondName;
-//    private SimpleStringProperty familyName;
-//    private SimpleStringProperty mobileNumber;
-//    private SimpleStringProperty email;
-//    private SimpleStringProperty photo;
-//    private SimpleLongProperty program;
-//    private SimpleLongProperty gender;
-//
-//    public Customer(){
-//
-//    }
-//
-//    public Customer(Long id,
-//                    String firstName,
-//                    String secondName,
-//                    String familyName,
-//                    String mobileNumber,
-//                    String email,
-//                    String photo,
-//                    Long program,
-//                    Long gender){
-//        this.id = new SimpleLongProperty(id);
-//        this.firstName = new SimpleStringProperty(firstName);
-//        this.secondName = new SimpleStringProperty(secondName);
-//        this.familyName = new SimpleStringProperty(familyName);
-//        this.mobileNumber = new SimpleStringProperty(mobileNumber);
-//        this.email = new SimpleStringProperty(email);
-//        this.photo = new SimpleStringProperty(photo);
-//        this.program = new SimpleLongProperty(program);
-//        this.gender = new SimpleLongProperty(gender);
-//    }
-//
-//    public long getId() {
-//        return id.get();
-//    }
-//
-////    public SimpleLongProperty idProperty() {
-////        return id;
-////    }
-//
-//    public void setId(long id) {
-//        this.id.set(id);
-//    }
-//
-//    public String getFirstName() {
-//        return firstName.get();
-//    }
-//
-////    public SimpleStringProperty firstNameProperty() {
-////        return firstName;
-////    }
-//
-//    public void setFirstName(String firstName) {
-//        this.firstName.set(firstName);
-//    }
-//
-//    public String getSecondName() {
-//        return secondName.get();
-//    }
-//
-////    public SimpleStringProperty secondNameProperty() {
-////        return secondName;
-////    }
-//
-//    public void setSecondName(String secondName) {
-//        this.secondName.set(secondName);
-//    }
-//
-//    public String getFamilyName() {
-//        return familyName.get();
-//    }
-//
-////    public SimpleStringProperty familyNameProperty() {
-////        return familyName;
-////    }
-//
-//    public void setFamilyName(String familyName) {
-//        this.familyName.set(familyName);
-//    }
-//
-//    public String getMobileNumber() {
-//        return mobileNumber.get();
-//    }
-//
-////    public SimpleStringProperty mobileNumberProperty() {
-////        return mobileNumber;
-////    }
-//
-//    public void setMobileNumber(String mobileNumber) {
-//        this.mobileNumber.set(mobileNumber);
-//    }
-//
-//    public String getEmail() {
-//        return email.get();
-//    }
-//
-////    public SimpleStringProperty emailProperty() {
-////        return email;
-////    }
-//
-//    public void setEmail(String email) {
-//        this.email.set(email);
-//    }
-//
-//    public String getPhoto() {
-//        return photo.get();
-//    }
-//
-////    public SimpleStringProperty photoProperty() {
-////        return photo;
-////    }
-//
-//    public void setPhoto(String photo) {
-//        this.photo.set(photo);
-//    }
-//
-//    public long getProgram() {
-//        return program.get();
-//    }
-//
-////    public SimpleLongProperty programProperty() {
-////        return program;
-////    }
-//
-//    public void setProgram(long program) {
-//        this.program.set(program);
-//    }
-//
-//    public long getGender() {
-//        return gender.get();
-//    }
-//
-////    public SimpleLongProperty genderProperty() {
-////        return gender;
-////    }
-//
-//    public void setGender(long gender) {
-//        this.gender.set(gender);
-//    }
 }

@@ -1,49 +1,50 @@
 package com.george.testone.collection;
 
-import com.george.testone.dataBase.ConnectToDataBase;
 import com.george.testone.dataBase.DbQuery;
 import com.george.testone.entity.Customer;
+import com.george.testone.interfaces.Collectiones;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CustomerCollection {
+/**
+ * this class was write for manage connection OperatorsController with the data base and the Customer's entity.
+ *
+ * @author George
+ */
+
+public class CustomerCollection implements Collectiones<Customer> {
 
     private ObservableList<Customer> customerObservableList = FXCollections.observableArrayList();
 
-    public ObservableList<Customer> getList(){
-        return customerObservableList;
-    }
-
-    public void addCustomer(Customer customer){
-        customerObservableList.add(customer);
-    }
-
+    @Override
     public void init(){
         try{
-            ResultSet rs = new DbQuery().stringQuery("SELECT " +
-                    "  customer.id, " +
-                    "  customer.first_name, " +
-                    "  customer.family_name, " +
-                    "  customer.mobile_number " +
-                    "FROM " +
-                    "  public.customer");
+            ResultSet rs = new DbQuery().stringQuery("SELECT * FROM public.customer");
             while (rs.next()){
-                System.out.println(rs.getLong("id"));
-                System.out.println(rs.getString("first_name"));
                 Customer customer = new Customer();
                 customer.setId(rs.getLong("id"));
+                customer.setSecondName(rs.getString("second_name"));
                 customer.setFirstName(rs.getString("first_name"));
                 customer.setFamilyName(rs.getString("family_name"));
                 customer.setMobileNumber(rs.getString("mobile_number"));
+                customer.setEmail(rs.getString("email"));
+                customer.setPhoto(rs.getString("photo"));
                 customerObservableList.add(customer);
             }
         }catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
+    @Override
+    public void add(Customer customer) {
+        customerObservableList.add(customer);
+    }
+    @Override
+    public ObservableList<Customer> getList(){
+        return customerObservableList;
+    }
 }

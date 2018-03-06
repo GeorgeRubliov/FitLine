@@ -5,10 +5,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Class for make Query to the data base and return Statement
+ */
+
 public class DbQuery {
+
     ResultSet rs = null;
     Statement st = null;
+
     Connection connection;
+
     public ResultSet stringQuery(String query){
         ConnectToDataBase dataBase = new ConnectToDataBase();
         connection = dataBase.connect();

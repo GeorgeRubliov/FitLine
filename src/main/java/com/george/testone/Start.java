@@ -16,26 +16,13 @@ public class Start {
 	public static void main(String[] args) {
 		try {
 			Scanner scanner = new Scanner(new File(BaseSettings.nameOfSetingFile));
-
 		} catch (FileNotFoundException e) {
-			System.out.println("exeption");
-			try {
-				FileWriter fileWriter = new FileWriter("settings.json");
-				JsonObject jsonObject = Json.createObjectBuilder()
-						.add("address","localhost")
-						.add("port","5432")
-						.add("DataBaseName","fitline")
-						.add("login","george")
-						.add("password","1")
-						.add("style","base")
-						.build();
-
-				fileWriter.write(String.valueOf(jsonObject));
-				fileWriter.flush();
-			} catch (IOException e1) {
-				System.out.println(e1);
-			}
+				BaseSettings.defaultSettings();
 		}
+
+		/**
+		 * Start Login Application
+		 */
 		Login.launch(Login.class, args);
 	}
 }

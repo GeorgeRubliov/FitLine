@@ -76,7 +76,7 @@ public class FirstSetting implements Initializable{
                     .build();
             fw.write(String.valueOf(jo));
             fw.flush();
-            System.out.println("Rewrite");
+
         } catch (IOException e) {
             e.printStackTrace();
         }

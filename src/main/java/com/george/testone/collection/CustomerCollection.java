@@ -21,9 +21,13 @@ public class CustomerCollection implements Collectiones<Customer> {
 
     @Override
     public void init(){
-        try{
+        makeLit();
+    }
+
+    private void makeLit() {
+        try {
             ResultSet rs = new DbQuery().stringQuery("SELECT * FROM public.customer");
-            while (rs.next()){
+            while (rs.next()) {
                 Customer customer = new Customer();
                 customer.setId(rs.getLong("id"));
                 customer.setSecondName(rs.getString("second_name"));
@@ -34,8 +38,9 @@ public class CustomerCollection implements Collectiones<Customer> {
                 customer.setPhoto(rs.getString("photo"));
                 customerObservableList.add(customer);
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
+
         }
     }
 
@@ -43,8 +48,18 @@ public class CustomerCollection implements Collectiones<Customer> {
     public void add(Customer customer) {
         customerObservableList.add(customer);
     }
+
     @Override
     public ObservableList<Customer> getList(){
         return customerObservableList;
+    }
+
+    public void refreshCustomerObservableList() {
+        try{
+            customerObservableList.clear();
+        }catch (Exception e){
+            System.out.println("clear");
+        }
+        makeLit();
     }
 }

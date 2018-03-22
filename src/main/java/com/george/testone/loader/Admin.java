@@ -23,7 +23,7 @@ public class Admin extends Application{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/admin.fxml"));
         primaryStage.setTitle("Admin");
         Parent parent = (Parent)loader.load();
-        parent.getStylesheets().add(Login.class.getResource("/styles/"+BaseSettings.style+".css").toExternalForm());
+        parent.getStylesheets().add(Login.class.getResource("/styles/" +BaseSettings.style+".css").toExternalForm());
         primaryStage.setScene(new Scene(parent));
         primaryStage.show();
         

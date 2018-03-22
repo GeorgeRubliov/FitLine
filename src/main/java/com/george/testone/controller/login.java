@@ -51,7 +51,6 @@ public class login{
 
     private void checkQuery(){
         try {
-//            ResultSet rs = new DbQuery().stringQuery("SELECT role.name FROM public.login, public.role WHERE role.id = login.role_id AND login.login = '"+log.getText()+"'  AND login.password = '"+password.getText()+"'");
             ResultSet rs = new DbQuery().stringQuery("SELECT roles.name FROM public.login, public.roles WHERE roles.id = login.id_roles AND login.name = '"+log.getText()+"' AND login.password = '"+password.getText()+"'");
             String role = null;
             while (rs.next()){

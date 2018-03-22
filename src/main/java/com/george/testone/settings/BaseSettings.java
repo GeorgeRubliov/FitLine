@@ -35,8 +35,8 @@ public class BaseSettings {
                     .add("address","localhost")
                     .add("port","5432")
                     .add("DataBaseName","fitline")
-                    .add("login","george")
-                    .add("password","1")
+                    .add("login","fit")
+                    .add("password","fit")
                     .add("style","base")
                     .build();
 

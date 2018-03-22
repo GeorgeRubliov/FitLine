@@ -6,6 +6,7 @@
 package com.george.testone.controller;
 
 import com.george.testone.collection.CustomerCollection;
+import com.george.testone.dataBase.DbQuery;
 import com.george.testone.entity.Customer;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,7 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-
+import java.util.Optional;
 
 /***********************************************************************************************************************
  *
@@ -72,9 +73,14 @@ public class OperatorsController{
     }
 
     private void setNames(Customer newValue) {
-        firstNameInfo.setText(newValue.getFirstName());
-        secondNameInfo.setText(newValue.getSecondName());
-        familyNameInfo.setText(newValue.getFamilyName());
+        try{
+            firstNameInfo.setText(newValue.getFirstName());
+            secondNameInfo.setText(newValue.getSecondName());
+            familyNameInfo.setText(newValue.getFamilyName());
+        }catch (NullPointerException e){
+            System.out.println("exception in OperatorController setName: this exception is under control");
+        }
+
     }
 
     private void event(ActionEvent actionEvent){
@@ -125,6 +131,7 @@ public class OperatorsController{
             TextField familyNameTextField = new TextField(customerListener.getFamilyName());
             Label mobileNumberLabel = new Label("Mobile Number: ");
             TextField mobileNumberTextField = new TextField(customerListener.getMobileNumber());
+            ButtonType okButton = new ButtonType("Ok");
 
             /***********************************************************************************************************
              *                                                                                                         *
@@ -151,8 +158,40 @@ public class OperatorsController{
              **********************************************************************************************************/
 
             dialog.getDialogPane().setContent(gridPane);
-            dialog.getDialogPane().getButtonTypes().add(new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE));
-            dialog.show();
+            dialog.getDialogPane().getButtonTypes().add(okButton);
+//            dialog.show();
+
+            /***********************************************************************************************************
+             *
+             * button listener
+             *
+             **********************************************************************************************************/
+
+            dialog.setResultConverter(new javafx.util.Callback<ButtonType, Customer>() {
+                @Override
+                public Customer call(ButtonType param) {
+                    Customer temp = new Customer();
+                    if(param == okButton){
+                        temp.setFirstName(firstNameTextField.getText());
+                        customerListener.setFirstName(firstNameTextField.getText());
+                        temp.setFamilyName(familyNameTextField.getText());
+                        customerListener.setFamilyName(familyNameTextField.getText());
+                        temp.setId(Long.parseLong(idValueLabel.getText()));
+                        customerListener.setId(Long.parseLong(idValueLabel.getText()));
+                        temp.setMobileNumber(mobileNumberTextField.getText());
+                        customerListener.setMobileNumber(mobileNumberTextField.getText());
+                        new DbQuery().stringQuery("");
+                    }
+                    return temp;
+                }
+            });
+
+            Optional<Customer> result = dialog.showAndWait();
+
+            if(result.isPresent()){
+                System.out.println(result.get());
+            }
+
         }
 
     }
@@ -181,9 +220,8 @@ public class OperatorsController{
      ******************************************************************************************************************/
 
     public void updateTable(ActionEvent actionEvent) {
-        customerObservableList.removeAll();
+        customerCollection.refreshCustomerObservableList();
         customerObservableList = customerCollection.getList();
-        table.refresh();
     }
 
     public void searchAction(ActionEvent actionEvent) {

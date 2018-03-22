@@ -2,6 +2,7 @@ package com.george.testone.entity;
 
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.TextField;
 
 /**
  * Entity class for manage customer profile.
@@ -21,9 +22,7 @@ public class Customer {
     private SimpleLongProperty gender  = new SimpleLongProperty();
     private SimpleStringProperty birthDate = new SimpleStringProperty();
 
-    public Customer(){
-
-    }
+    public Customer(){}
 
     /**
      *
@@ -319,4 +318,6 @@ public class Customer {
                 ", birthDate="+ birthDate +
                 '}'+"\n ";
     }
+
+
 }

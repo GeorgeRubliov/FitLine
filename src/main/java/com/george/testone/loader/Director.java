@@ -23,7 +23,7 @@ public class Director extends Application{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Director.fxml"));
         primaryStage.setTitle("Director");
         Parent parent = (Parent)loader.load();
-        parent.getStylesheets().add(Login.class.getResource("/styles/"+BaseSettings.style+".css").toExternalForm());
+        parent.getStylesheets().add(Login.class.getResource("/styles/" +BaseSettings.style+".css").toExternalForm());
         primaryStage.setResizable(true);
         primaryStage.setScene(new Scene(parent));
         primaryStage.show();

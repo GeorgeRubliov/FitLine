@@ -180,7 +180,7 @@ public class OperatorsController{
                         customerListener.setId(Long.parseLong(idValueLabel.getText()));
                         temp.setMobileNumber(mobileNumberTextField.getText());
                         customerListener.setMobileNumber(mobileNumberTextField.getText());
-                        new DbQuery().stringQuery("");
+//                        new DbQuery().stringQuery("");
                     }
                     return temp;
                 }

@@ -17,7 +17,7 @@ public class Start {
 		try {
 			Scanner scanner = new Scanner(new File(BaseSettings.nameOfSetingFile));
 		} catch (FileNotFoundException e) {
-			System.out.println("");
+			System.out.println("Error");
 				BaseSettings.defaultSettings();
 		}
 
